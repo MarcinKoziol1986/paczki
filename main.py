@@ -37,9 +37,10 @@ print("Witam "
       "Przygotuj dane potrzebne do wysyłki")
 
 liczba_paczek_wyslanych = 0
-liczba_kilogramow_wylanych = 0
+liczba_kilogramow_wyslanych = 0
 waga_najlzejszej_paczki = 20
 numer_najlzejszej_paczki = None
+waga_aktualnej_paczki = None
 # dodaj waga_elementu do waga_aktuaalnej_paczki
 
 
@@ -48,7 +49,35 @@ for numer_elementu in range(ilosc_elementow):
     waga_elementu = int(input("Podaj wagę elementu: "))
     if not (1 <= waga_elementu <= 10):
         break
-    waga_aktualnej_paczki = int(sum(waga_elementu))
-    print(waga_aktualnej_paczki)
-
-
+    waga_aktualnej_paczki = int(waga_elementu)
+    if waga_aktualnej_paczki >= 20:
+        waga_aktualnej_paczki -= int(waga_elementu)
+        liczba_paczek_wyslanych = liczba_paczek_wyslanych + 1
+        if waga_aktualnej_paczki <= waga_najlzejszej_paczki:
+            waga_najlzejszej_paczki = waga_aktualnej_paczki
+            numer_najlzejszej_paczki = liczba_paczek_wyslanych
+        liczba_kilogramow_wyslanych += waga_aktualnej_paczki
+        waga_aktualnej_paczki = int(waga_elementu)
+    if waga_aktualnej_paczki == 20:
+        liczba_paczek_wyslanych = liczba_paczek_wyslanych + 1
+        if waga_aktualnej_paczki <= waga_najlzejszej_paczki:
+            waga_najlzejszej_paczki = waga_aktualnej_paczki
+            numer_najlzejszej_paczki = liczba_paczek_wyslanych
+        liczba_kilogramow_wyslanych += waga_aktualnej_paczki
+        waga_aktualnej_paczki = 0
+    if waga_aktualnej_paczki <= 20:
+        pass
+if waga_aktualnej_paczki >= 0:
+    liczba_paczek_wyslanych = liczba_paczek_wyslanych + 1
+    if waga_aktualnej_paczki <= waga_najlzejszej_paczki:
+        waga_najlzejszej_paczki = waga_aktualnej_paczki
+        numer_najlzejszej_paczki = liczba_paczek_wyslanych
+    liczba_kilogramow_wyslanych += waga_aktualnej_paczki
+print(f'Liczba paczek wyslanych ;{liczba_paczek_wyslanych}')
+print(f'Liczba Kilogramow wyslanych ;{liczba_kilogramow_wyslanych}')
+print(
+    f'Suma pustych kilogramow; '
+    f'{liczba_paczek_wyslanych * 20 - liczba_kilogramow_wyslanych}')
+print(f'Numer najlzejszej paczki; {numer_najlzejszej_paczki}')
+print(f'Waga najlzejszej paczki; {waga_najlzejszej_paczki}')
+print('Dziekujemy za skorzystanie z naszego programu')
