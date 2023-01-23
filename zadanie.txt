@@ -7,15 +7,15 @@ liczbe elementow
   podana przez usera
   - jesli waga elementu nie jest w zakresie <1;10>:
     -przerwij dzialanie wczytywanie elementu
-  - dodaj "waga_aktualnego" do "waga_aktualnej_paczki"
+  - dodaj "waga_elementu" do "waga_aktualnej_paczki"
   - jesli "waga_aktualnej_paczki" jest wieksza od 20:
-    - odejmij "waga_aktualnego" od "waga_aktualnej_paczki"
+    - odejmij "waga_elementu" od "waga_aktualnej_paczki"
     - Dodaj 1 do "liczba_paczek_wyslanych"
     - jesli "waga_aktualnej_paczki" jest mniejsza od "waga_najlzejszej_paczki":
       - do "waga_najlzejszej_paczki" zapisz "waga_aktualnej_paczki"
       - do "numer_najlzejszej_paczki" zapisz "liczba_paczek_wyslanych"
     - do "liczba_kilogramow_wyslanych" dodaj "waga_aktualnej_paczki"
-    - zapisz do "waga_aktualnej_paczki" wartosc "waga_aktualnego_elementu"
+    - zapisz do "waga_aktualnej_paczki" wartosc "waga_elementu"
   - jesli "waga_aktualnej_paczki" jest rowna 20:
     - dodaj 1 do "liczba_paczek_wyslanych"
     - jesli "waga_aktualnej_paczki" jest mniejsza od "waga_najlzejszej_paczki":

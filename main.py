@@ -40,7 +40,7 @@ liczba_paczek_wyslanych = 0
 liczba_kilogramow_wyslanych = 0
 waga_najlzejszej_paczki = 20
 numer_najlzejszej_paczki = None
-waga_aktualnej_paczki = None
+waga_aktualnej_paczki = 0
 # dodaj waga_elementu do waga_aktuaalnej_paczki
 
 
@@ -49,17 +49,17 @@ for numer_elementu in range(ilosc_elementow):
     waga_elementu = int(input("Podaj wagę elementu: "))
     if not (1 <= waga_elementu <= 10):
         break
-    waga_aktualnej_paczki = int(waga_elementu)
+    waga_aktualnej_paczki += int(waga_elementu)
     if waga_aktualnej_paczki >= 20:
         waga_aktualnej_paczki -= int(waga_elementu)
-        liczba_paczek_wyslanych = liczba_paczek_wyslanych + 1
+        liczba_paczek_wyslanych += 1
         if waga_aktualnej_paczki <= waga_najlzejszej_paczki:
             waga_najlzejszej_paczki = waga_aktualnej_paczki
             numer_najlzejszej_paczki = liczba_paczek_wyslanych
         liczba_kilogramow_wyslanych += waga_aktualnej_paczki
         waga_aktualnej_paczki = int(waga_elementu)
     if waga_aktualnej_paczki == 20:
-        liczba_paczek_wyslanych = liczba_paczek_wyslanych + 1
+        liczba_paczek_wyslanych += 1
         if waga_aktualnej_paczki <= waga_najlzejszej_paczki:
             waga_najlzejszej_paczki = waga_aktualnej_paczki
             numer_najlzejszej_paczki = liczba_paczek_wyslanych
@@ -68,7 +68,7 @@ for numer_elementu in range(ilosc_elementow):
     if waga_aktualnej_paczki <= 20:
         pass
 if waga_aktualnej_paczki >= 0:
-    liczba_paczek_wyslanych = liczba_paczek_wyslanych + 1
+    liczba_paczek_wyslanych += 1
     if waga_aktualnej_paczki <= waga_najlzejszej_paczki:
         waga_najlzejszej_paczki = waga_aktualnej_paczki
         numer_najlzejszej_paczki = liczba_paczek_wyslanych
